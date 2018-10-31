@@ -21,7 +21,7 @@ namespace VIS_projekt.Data
 
         public DatabaseTable() : base()
         {
-
+            //blabla
         }
 
         public T AddRecord()

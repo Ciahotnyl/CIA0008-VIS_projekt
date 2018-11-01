@@ -45,7 +45,7 @@
     <Compile Include="Data\Absences.cs" />
     <Compile Include="Data\Database.cs" />
     <Compile Include="Data\DatabaseTable.cs" />
-    <Compile Include="Data\Employee.cs" />
+    <Compile Include="Data\Employees.cs" />
     <Compile Include="Data\EmployeePosition.cs" />
     <Compile Include="Data\ITable.cs" />
     <Compile Include="Data\Positions.cs" />

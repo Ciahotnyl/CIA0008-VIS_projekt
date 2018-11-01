@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace VIS_projekt.Data
 {
-    class Reasons
+    class Reasons : Record
     {
+        public Reasons(ITable table) : base(table)
+        {
+
+        }
+        public int ID_reason { get; set; }
+        public string Name_of_reason { get; set; }
+       
     }
 }

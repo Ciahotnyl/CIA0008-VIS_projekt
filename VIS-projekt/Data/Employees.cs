@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace VIS_projekt.Data
 {
-    class Employee : Record
+    class Employees : Record
     {
-        public Employee(ITable table) : base(table)
+        public Employees(ITable table) : base(table)
         {
 
         }
@@ -20,6 +20,7 @@ namespace VIS_projekt.Data
         public string First_name { get; set; }
         public string Last_name { get; set; }
         public DateTime Birthday { get; set; }
+        public DateTime Start_date { get; set; }
         
     }
 }

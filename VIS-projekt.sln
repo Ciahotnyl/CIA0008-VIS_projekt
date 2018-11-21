@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIS-projekt", "VIS-projekt\VIS-projekt.csproj", "{613AE39D-3DD5-4955-ACDB-0AD7B05DAF16}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shift", "Shift\Shift.csproj", "{FC1556DB-8EDC-4E2D-83D6-C8EFA1EF74D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{613AE39D-3DD5-4955-ACDB-0AD7B05DAF16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{613AE39D-3DD5-4955-ACDB-0AD7B05DAF16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{613AE39D-3DD5-4955-ACDB-0AD7B05DAF16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC1556DB-8EDC-4E2D-83D6-C8EFA1EF74D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC1556DB-8EDC-4E2D-83D6-C8EFA1EF74D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC1556DB-8EDC-4E2D-83D6-C8EFA1EF74D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC1556DB-8EDC-4E2D-83D6-C8EFA1EF74D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

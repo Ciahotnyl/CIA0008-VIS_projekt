@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Shift.Data
 {
-    //proxy, fasada, observer, observable
+    //proxy, facada, observer, observable
     public class DatabaseTable<T> : List<T>, ITable where T : Record
     {
         private List<string> _fields = null;

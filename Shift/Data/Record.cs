@@ -11,7 +11,14 @@ namespace Shift.Data
     {
         ITable Table;
         public event EventHandler RecordChanged;
-
+        public enum state
+        {
+            UNCHANGED, 
+            MODIFIED,
+            DELETED,
+            INSERTED
+        }
+        public state CURRENT_STATE = state.UNCHANGED;
         public Record(ITable table)
         {
             Table = table;

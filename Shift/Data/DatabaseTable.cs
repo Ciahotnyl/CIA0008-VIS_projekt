@@ -9,13 +9,18 @@ using System.Threading.Tasks;
 
 namespace Shift.Data
 {
+    // bude class factory a bude fungovat jako injection of control
+    public abstract class DataProvider<T> : List<T>, ITable where T : Record
+    {
+        public abstract List<string> Fields { get; }
+    }
     //proxy, fasada, observer, observable
-    public class DatabaseTable<T> : List<T>, ITable where T : Record
+    public class DatabaseTable<T> :DataProvider<T> where T : Record
     {
         private List<string> _fields = null;
         public event EventHandler Changed;
 
-        public List<string> Fields
+        public override List<string> Fields
         {
             get { return _fields; }
         }
@@ -28,16 +33,45 @@ namespace Shift.Data
         public T AddRecord()
         {
             T record = (T)Activator.CreateInstance(typeof(T), new object[] { this });
+            this.Add(record);
             Changed?.Invoke(this, new EventArgs());
             return record;
         }
-
-        public void Fill(SqlConnection conn)
+        public void Save()
         {
-            string sql = $"SELECT * FROM {TableName}";
+            foreach (var rec in this)
+            {
+                switch (rec.CURRENT_STATE)
+                {
+                    case Record.state.UNCHANGED:
+                        break;
+                }
+            }
+        }
+                                                // SELECT * FROM Employees WHERE name = @jmeno
+                                                // param = new dictionery<string,object>{{"jmeno", "Lukas"}}
+        public void Fill(SqlConnection conn, string command = null, Dictionary<String, object> param = null)
+        {
+           string sql;
+           if (command == null)
+            {
+                sql = $"SELECT * FROM {TableName}";
+            }
+           else
+            {
+                sql = command;
+            }
+
 
             using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
+                if(param != null)
+                {
+                    foreach(var par in param)
+                    {
+                        cmd.Parameters.AddWithValue(par.Key, par.Value);
+                    }
+                }
                     using (SqlDataReader sr = cmd.ExecuteReader())
                     {
                         if (_fields == null)
@@ -86,5 +120,7 @@ namespace Shift.Data
                 return _tableName;
             }
         }
+
+        //public override List<string> Fields { get { return null; } }
     }
 }

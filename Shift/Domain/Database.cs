@@ -30,7 +30,7 @@ namespace Shift.Domain
         }
 
         Dictionary<Type, object> Tables = new Dictionary<Type, object>();
-        public DatabaseTable<T> getTable<T>() where T : Record, new()
+        public DatabaseTable<T> getTable<T>(Dictionary<String, Object> param) where T : Record, new()
         {
             if (Tables.ContainsKey(typeof(T)))
             {

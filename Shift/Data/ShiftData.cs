@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shift.Data
 {
-    class Shifts
+    public class ShiftData: Attribute
     {
-        public int ID_shift { get; set; }
-        public string Name_of_shift { get; set; }
     }
 }

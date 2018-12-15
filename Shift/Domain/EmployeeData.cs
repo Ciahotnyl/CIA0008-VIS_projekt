@@ -13,12 +13,14 @@ namespace Shift.Domain
         public static DatabaseTable<Employees> getEmployees()
         {
             DatabaseTable<Employees> employee = new DatabaseTable<Employees>();
+            employee.Fill(null);
+            /*
             using (SqlConnection conn = new SqlConnection(Database.ConnectionString))
             {
                 conn.Open();
-                employee.Fill(conn);
+                
             }
-
+            */
             return employee;
         }
     }

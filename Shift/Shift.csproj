@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Absences.cs" />
+    <Compile Include="Data\ReferenceData.cs" />
+    <Compile Include="Data\ShiftData.cs" />
     <Compile Include="Domain\Database.cs" />
     <Compile Include="Data\DatabaseTable.cs" />
     <Compile Include="Data\EmployeePosition.cs" />
@@ -59,6 +62,9 @@
     <Compile Include="Data\TeamShift.cs" />
     <Compile Include="Data\Workplaces.cs" />
     <Compile Include="Domain\EmployeeData.cs" />
+    <Compile Include="Domain\IDataProvider.cs" />
+    <Compile Include="Domain\JsonDataProvider.cs" />
+    <Compile Include="Domain\SqlDataProvider.cs" />
     <Compile Include="Presentation\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

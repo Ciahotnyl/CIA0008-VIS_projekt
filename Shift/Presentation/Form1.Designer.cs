@@ -39,11 +39,15 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.DataStrip = new System.Windows.Forms.ToolStrip();
             this.AddButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.ShiftCombo = new System.Windows.Forms.ToolStripComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.DataStrip.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -59,6 +63,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.toolStrip1);
             this.tabPage1.Controls.Add(this.employeeGrid);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -83,7 +88,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(670, 307);
+            this.tabPage2.Size = new System.Drawing.Size(670, 260);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -124,7 +129,8 @@
             // DataStrip
             // 
             this.DataStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddButton});
+            this.AddButton,
+            this.toolStripComboBox1});
             this.DataStrip.Location = new System.Drawing.Point(0, 24);
             this.DataStrip.Name = "DataStrip";
             this.DataStrip.Size = new System.Drawing.Size(678, 25);
@@ -141,6 +147,33 @@
             this.AddButton.Text = "Add";
             this.AddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShiftCombo});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(664, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // ShiftCombo
+            // 
+            this.ShiftCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ShiftCombo.Items.AddRange(new object[] {
+            "All",
+            "A",
+            "B",
+            "C",
+            "D"});
+            this.ShiftCombo.Name = "ShiftCombo";
+            this.ShiftCombo.Size = new System.Drawing.Size(121, 25);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,13 +186,17 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeGrid)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.DataStrip.ResumeLayout(false);
             this.DataStrip.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,6 +214,9 @@
         private System.Windows.Forms.DataGridView employeeGrid;
         private System.Windows.Forms.ToolStrip DataStrip;
         private System.Windows.Forms.ToolStripButton AddButton;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripComboBox ShiftCombo;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
     }
 }
 

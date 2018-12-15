@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
@@ -15,12 +16,27 @@ namespace Shift.Data
 
         }
       
+        [ShiftData]
         public int ID_employee { get; set; }
-        public int ID_shift { get; set; }
-        public string First_name { get; set; }
-        public string Last_name { get; set; }
-        public DateTime Birthday { get; set; }
-        public DateTime Start_date { get; set; }
         
+        [ShiftData]
+        public int ID_shift { get; set; }
+    
+        [ShiftData]
+        public string First_name { get; set; }
+
+        [ShiftData]
+        public string Last_name { get; set; }
+
+        [ShiftData]
+        public DateTime Birthday { get; set; }
+
+        [ShiftData]
+        public DateTime Start_date { get; set; }
+
+        [ShiftData]
+        [ReferenceData("Shifts", "ID_shift")]
+        public string Name_of_shift { get; set; }
+
     }
 }

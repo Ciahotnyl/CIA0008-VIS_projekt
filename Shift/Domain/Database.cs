@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/*
 namespace Shift.Domain
 {
     //builder - getTable, fasada, proxy
@@ -28,7 +28,7 @@ namespace Shift.Domain
 
        
         }
-
+        
         Dictionary<Type, object> Tables = new Dictionary<Type, object>();
         public DatabaseTable<T> getTable<T>(Dictionary<String, Object> param) where T : Record, new()
         {
@@ -41,14 +41,14 @@ namespace Shift.Domain
             Tables.Add(typeof(T), ret);
             return ret;
         }
-
-        /*
-         * using (SqlConnection conn = new SqlConnection(Database.ConnectionString))
+        
+         using (SqlConnection conn = new SqlConnection(Database.ConnectionString))
             {
                 conn.Open();
             }
-         */
+        
 
-        public static string ConnectionString = @"server=dbsys.cs.vsb.cz\STUDENT;database=cia0008;user=cia0008;password=qkFGDEHrFz;";
+     //   public static string ConnectionString = @"server=dbsys.cs.vsb.cz\STUDENT;database=cia0008;user=cia0008;password=qkFGDEHrFz;";
     }
 }
+*/

@@ -39,5 +39,10 @@ namespace Shift
             int i = 10;
 
         }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            ShiftCombo.SelectedIndex = 0;
+        }
     }
 }

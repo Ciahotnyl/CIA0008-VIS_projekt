@@ -9,26 +9,34 @@ using System.Threading.Tasks;
 
 namespace Shift.Data
 {
-    // bude class factory a bude fungovat jako injection of control
-    public abstract class DataProvider<T> : List<T>, ITable where T : Record
-    {
-        public abstract List<string> Fields { get; }
-    }
+
+
     //proxy, fasada, observer, observable
-    public class DatabaseTable<T> :DataProvider<T> where T : Record
+    public class DatabaseTable<T> : List<T>, ITable where T : Record// :DataProvider<T> where T : Record
     {
         private List<string> _fields = null;
         public event EventHandler Changed;
 
-        public override List<string> Fields
+        public List<string> Fields
         {
             get { return _fields; }
+            set { _fields = value; }
         }
 
         public DatabaseTable() : base()
         {
             //blabla
         }
+
+
+        public IDataProvider<T>DataProvider
+        {
+            get
+            {
+                return new SqlDataProvider<T>();
+            }
+        }
+
 
         public T AddRecord()
         {
@@ -50,8 +58,12 @@ namespace Shift.Data
         }
                                                 // SELECT * FROM Employees WHERE name = @jmeno
                                                 // param = new dictionery<string,object>{{"jmeno", "Lukas"}}
-        public void Fill(SqlConnection conn, string command = null, Dictionary<String, object> param = null)
+        public void Fill(Dictionary<String, object> param = null)
         {
+            DataProvider.Fill(this, param);
+            var JsP = new JsonDataProvider<T>();
+            JsP.Export(this);
+            /*
            string sql;
            if (command == null)
             {
@@ -100,7 +112,7 @@ namespace Shift.Data
                         }
                     }
                 }
-            
+            */
         }
         private void Record_RecordChanged(object sender, EventArgs e)
         {

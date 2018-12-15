@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Shift.Data
 {
+
+
     //Observable
+    
     public class Record
     {
         ITable Table;
@@ -37,6 +40,7 @@ namespace Shift.Data
             set
             {
                 //TODO
+                CURRENT_STATE = state.MODIFIED;
                 RecordChanged?.Invoke(this, new EventArgs());
             }
 

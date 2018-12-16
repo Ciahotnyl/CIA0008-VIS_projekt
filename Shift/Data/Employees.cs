@@ -38,5 +38,17 @@ namespace Shift.Data
         [ReferenceData("Shifts", "ID_shift")]
         public string Name_of_shift { get; set; }
 
+        [ShiftData]
+        [ReferenceData("Absences", "ID_employee")] 
+        public int? ID_absence { get; set; }
+
+        [ShiftData]
+        [ReferenceData("EmployeePosition", "ID_employee")]
+        public int ID_position { get; set; }
+
+        [ShiftData]
+        [ReferenceData("Positions", "ID_position", "EmployeePosition")]
+        public string Name_of_position { get; set; }
+
     }
 }

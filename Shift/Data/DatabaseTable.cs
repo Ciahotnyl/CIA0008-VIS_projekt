@@ -58,7 +58,7 @@ namespace Shift.Data
         }
                                                 // SELECT * FROM Employees WHERE name = @jmeno
                                                 // param = new dictionery<string,object>{{"jmeno", "Lukas"}}
-        public void Fill(Dictionary<String, object> param = null)
+        public void Fill(Dictionary<String,Object> param = null)
         {
             DataProvider.Fill(this, param);
             var JsP = new JsonDataProvider<T>();

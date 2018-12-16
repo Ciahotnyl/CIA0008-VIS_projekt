@@ -23,7 +23,6 @@ namespace Shift.Domain
         public void Fill(DatabaseTable<T> db, Dictionary<string, object> param = null)
         {
             string sql;
-            //record.GetType()
 
             var props = typeof(T).GetProperties();
 
@@ -33,7 +32,9 @@ namespace Shift.Domain
             FirstTable = FirstTable.ToString().Substring(FirstTable.ToString().IndexOf('.') + 1);
             String NameOfJoined = "";
             String ForeignKey = "";
-            Dictionary<string, string> Joining = new Dictionary<string, string>();
+            String ForeignTableName = "";
+            //Dictionary<string, string> Joining = new Dictionary<string, string>();
+            List<Tuple<String, String, String>> Joining = new List<Tuple<string, string, string>>();
 
             foreach (var prop in props)
             {
@@ -45,7 +46,7 @@ namespace Shift.Domain
 
                     if(refe == null)
                     {
-                        string column = prop.Name;// .ToString().Substring(prop.ToString().IndexOf(' ') + 1);
+                        string column = prop.Name;
                         columns += (FirstTable + "." + column + ", ");
                     }
                     else
@@ -55,7 +56,8 @@ namespace Shift.Domain
                         {
                             NameOfJoined = da.TableName;
                             ForeignKey = da.ForeignKey;
-                            Joining.Add(da.TableName,da.ForeignKey);
+                            ForeignTableName = da.ForeignTableName;
+                            Joining.Add(new Tuple<String, String, String>(da.TableName,da.ForeignKey, da.ForeignTableName));
                         }
                         string joinedColumn = prop.ToString().Substring(prop.ToString().IndexOf(' ') + 1);
                         columns += (NameOfJoined+ "." +joinedColumn + ", ");
@@ -69,12 +71,21 @@ namespace Shift.Domain
             {
                 foreach (var r in Joining)
                 {
-                    columns += (" JOIN " + r.Key + " ON " + FirstTable + "." + r.Value + " = " + r.Key + "." + r.Value);
+                    columns += (" LEFT OUTER JOIN " + r.Item1 + " ON " + r.Item1 + "." + r.Item2 + " = " + (r.Item3 == "" ? FirstTable : r.Item3) + "." + r.Item2);
                 }
 
             }
+            if (param != null && param.Count >= 1)
+            {
+                columns += " WHERE ";
+                foreach (var p in param)
+                {
+                    columns += p.Key + "= @" + p.Key + ", ";
+                }
+                columns = columns.Substring(0, columns.Length - 2);
+            }
             sql = columns;
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            using ( SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
@@ -112,8 +123,11 @@ namespace Shift.Domain
                             {
                                 object val = sr[i];
                                 PropertyInfo prop = record.GetType().GetProperty(db.Fields[i]);
-
-                                prop.SetValue(record, val, null);
+                                //if(val != DBNull.Value)
+                                //{
+                                    prop.SetValue(record, (val==DBNull.Value?null:val), null);
+                                //}
+                        
 
                             }
                             db.Add(record);

@@ -28,7 +28,7 @@ namespace Shift
         {
             if(employeeGrid.DataSource == null)
             {
-                DatabaseTable<Employees> empl = EmployeeData.getEmployees();
+                DatabaseTable<Employees> empl = EmployeeData.getEmployees(null);
                 employeeGrid.DataSource = empl;
                 //employeeNavigator.BindingSource = empl;
             }
@@ -43,6 +43,17 @@ namespace Shift
         private void Form1_Shown(object sender, EventArgs e)
         {
             ShiftCombo.SelectedIndex = 0;
+        }
+
+        private void ShiftCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Dictionary<String, object> param = new Dictionary<string, object>();
+            if(ShiftCombo.SelectedItem != "All")
+            {
+                param.Add("Name_of_shift", ShiftCombo.SelectedItem);
+            }
+            DatabaseTable<Employees> empl = EmployeeData.getEmployees(param);
+            employeeGrid.DataSource = empl;
         }
     }
 }

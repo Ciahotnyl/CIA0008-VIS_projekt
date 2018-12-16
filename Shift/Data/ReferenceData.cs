@@ -10,11 +10,13 @@ namespace Shift.Data
     {
         public string TableName { get; set; }
         public string ForeignKey { get; set; }
+        public string ForeignTableName { get; set; }
 
-        public ReferenceData(string tablename, string foreignKey)
+        public ReferenceData(string tablename, string foreignKey, string foreignTableName = "")
         {
             TableName = tablename;
             ForeignKey = foreignKey;
+            ForeignTableName = foreignTableName;
         }
     }
 }

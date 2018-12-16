@@ -10,10 +10,10 @@ namespace Shift.Domain
 {
     public class EmployeeData
     {
-        public static DatabaseTable<Employees> getEmployees()
+        public static DatabaseTable<Employees> getEmployees(Dictionary<String, Object> param)
         {
             DatabaseTable<Employees> employee = new DatabaseTable<Employees>();
-            employee.Fill(null);
+            employee.Fill(param);
             /*
             using (SqlConnection conn = new SqlConnection(Database.ConnectionString))
             {

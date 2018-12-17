@@ -60,6 +60,7 @@
     <Compile Include="Domain\EmployeeData.cs" />
     <Compile Include="Domain\IDataProvider.cs" />
     <Compile Include="Domain\JsonDataProvider.cs" />
+    <Compile Include="Domain\ShiftData.cs" />
     <Compile Include="Domain\SqlDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -38,7 +38,7 @@ namespace Shift.Domain
 
             foreach (var prop in props)
             {
-                var CA = prop.GetCustomAttribute(typeof(ShiftData), false);
+                var CA = prop.GetCustomAttribute(typeof(ShiftDbData), false);
                 if (CA != null)
                 {
                     var refe = prop.GetCustomAttribute(typeof(ReferenceData), false);
@@ -80,7 +80,7 @@ namespace Shift.Domain
                 columns += " WHERE ";
                 foreach (var p in param)
                 {
-                    columns += p.Key + "= @" + p.Key + ", ";
+                    columns += p.Key + "= @" + p.Key.Split(".".ToCharArray()).Last() + ", ";
                 }
                 columns = columns.Substring(0, columns.Length - 2);
             }
@@ -100,7 +100,7 @@ namespace Shift.Domain
                     {
                         foreach (var par in param)
                         {
-                            cmd.Parameters.AddWithValue(par.Key, par.Value);
+                            cmd.Parameters.AddWithValue(par.Key.Split(".".ToCharArray()).Last(), par.Value);
                         }
                     }
                     using (SqlDataReader sr = cmd.ExecuteReader())

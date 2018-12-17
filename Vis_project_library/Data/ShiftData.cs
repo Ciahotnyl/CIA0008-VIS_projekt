@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shift.Data
 {
-    public class ShiftData: Attribute
+    public class ShiftDbData: Attribute
     {
     }
 }

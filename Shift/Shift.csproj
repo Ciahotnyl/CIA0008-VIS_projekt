@@ -46,25 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Absences.cs" />
-    <Compile Include="Data\ReferenceData.cs" />
-    <Compile Include="Data\ShiftData.cs" />
-    <Compile Include="Domain\Database.cs" />
-    <Compile Include="Data\DatabaseTable.cs" />
-    <Compile Include="Data\EmployeePosition.cs" />
-    <Compile Include="Data\Employees.cs" />
-    <Compile Include="Data\ITable.cs" />
-    <Compile Include="Data\Positions.cs" />
-    <Compile Include="Data\Reasons.cs" />
-    <Compile Include="Data\Record.cs" />
-    <Compile Include="Data\Shifts.cs" />
-    <Compile Include="Data\Teams.cs" />
-    <Compile Include="Data\TeamShift.cs" />
-    <Compile Include="Data\Workplaces.cs" />
-    <Compile Include="Domain\EmployeeData.cs" />
-    <Compile Include="Domain\IDataProvider.cs" />
-    <Compile Include="Domain\JsonDataProvider.cs" />
-    <Compile Include="Domain\SqlDataProvider.cs" />
     <Compile Include="Presentation\CreateTeam.cs">
       <SubType>Form</SubType>
     </Compile>

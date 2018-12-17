@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FC1556DB-8EDC-4E2D-83D6-C8EFA1EF74D8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Shift</RootNamespace>
-    <AssemblyName>Shift</AssemblyName>
+    <RootNamespace>Vis_project_desktop</RootNamespace>
+    <AssemblyName>Vis_project_desktop</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -83,6 +83,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

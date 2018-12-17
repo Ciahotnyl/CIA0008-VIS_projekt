@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shift", "Shift\Shift.csproj", "{FC1556DB-8EDC-4E2D-83D6-C8EFA1EF74D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vis_project_desktop", "Shift\Vis_project_desktop.csproj", "{FC1556DB-8EDC-4E2D-83D6-C8EFA1EF74D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vis_project_library", "Vis_project_library\Vis_project_library.csproj", "{E875D7A8-E2D8-47C2-954A-5F65F4C1BF1C}"
 EndProject

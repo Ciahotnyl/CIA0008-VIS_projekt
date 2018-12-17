@@ -35,6 +35,15 @@ namespace Shift.Data
         public DateTime Start_date { get; set; }
 
         [ShiftData]
+        public Boolean isAdmin { get; set; }
+
+        [ShiftData]
+        public string Employee_login { get; set; }
+
+        [ShiftData]
+        public string Employee_password { get; set; }
+
+        [ShiftData]
         [ReferenceData("Shifts", "ID_shift")]
         public string Name_of_shift { get; set; }
 
@@ -49,6 +58,16 @@ namespace Shift.Data
         [ShiftData]
         [ReferenceData("Positions", "ID_position", "EmployeePosition")]
         public string Name_of_position { get; set; }
+
+        [ShiftData]
+        [ReferenceData("Teams", "ID_position", "Positions")]
+        public int ID_team { get; set; }
+
+        [ShiftData]
+        [ReferenceData("Workplaces", "ID_workplace", "Teams")]
+        public string Name_of_workplace { get; set; }
+
+
 
     }
 }

@@ -13,6 +13,7 @@ namespace Shift.Domain
         public static DatabaseTable<Employees> getEmployees(Dictionary<String, Object> param)
         {
             DatabaseTable<Employees> employee = new DatabaseTable<Employees>();
+            
             employee.Fill(param);
             /*
             using (SqlConnection conn = new SqlConnection(Database.ConnectionString))

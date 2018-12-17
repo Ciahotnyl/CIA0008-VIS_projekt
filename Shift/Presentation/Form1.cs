@@ -1,5 +1,6 @@
 ﻿using Shift.Data;
 using Shift.Domain;
+using Shift.Presentation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace Shift
 {
     public partial class Form1 : Form
     {
+        string login = "";
+        bool isAdmin = false;
         public Form1()
         {
             InitializeComponent();
@@ -42,6 +45,23 @@ namespace Shift
 
         private void Form1_Shown(object sender, EventArgs e)
         {
+            while(login == "")
+            {
+                Login lf = new Login();
+                switch(lf.ShowDialog())
+                {
+                    case DialogResult.OK:
+                        if(lf.emp != null)
+                        {
+                            login = lf.emp.Employee_login;
+                            isAdmin = lf.emp.isAdmin;
+                        }
+                        break;
+                    case DialogResult.Cancel:
+                        Close();
+                        return;
+                }
+            }           
             ShiftCombo.SelectedIndex = 0;
         }
 

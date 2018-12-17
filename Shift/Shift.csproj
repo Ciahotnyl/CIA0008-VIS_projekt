@@ -65,16 +65,34 @@
     <Compile Include="Domain\IDataProvider.cs" />
     <Compile Include="Domain\JsonDataProvider.cs" />
     <Compile Include="Domain\SqlDataProvider.cs" />
+    <Compile Include="Presentation\CreateTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\CreateTeam.Designer.cs">
+      <DependentUpon>CreateTeam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentation\CreateTeam.resx">
+      <DependentUpon>CreateTeam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,6 +116,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Vis_project_library\Vis_project_library.csproj">
+      <Project>{e875d7a8-e2d8-47c2-954a-5f65f4c1bf1c}</Project>
+      <Name>Vis_project_library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

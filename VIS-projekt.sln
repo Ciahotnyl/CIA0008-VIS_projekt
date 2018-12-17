@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIS-projekt", "VIS-projekt\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shift", "Shift\Shift.csproj", "{FC1556DB-8EDC-4E2D-83D6-C8EFA1EF74D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vis_project_library", "Vis_project_library\Vis_project_library.csproj", "{E875D7A8-E2D8-47C2-954A-5F65F4C1BF1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FC1556DB-8EDC-4E2D-83D6-C8EFA1EF74D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC1556DB-8EDC-4E2D-83D6-C8EFA1EF74D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC1556DB-8EDC-4E2D-83D6-C8EFA1EF74D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E875D7A8-E2D8-47C2-954A-5F65F4C1BF1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E875D7A8-E2D8-47C2-954A-5F65F4C1BF1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E875D7A8-E2D8-47C2-954A-5F65F4C1BF1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E875D7A8-E2D8-47C2-954A-5F65F4C1BF1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -60,5 +60,10 @@ namespace Shift.Domain
             var test = jss_load.DeserializeObject(temp2);
             */
         }
+
+        public void Save(DatabaseTable<T> db, Dictionary<string, object> param = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

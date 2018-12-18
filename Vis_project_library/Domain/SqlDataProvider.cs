@@ -33,7 +33,6 @@ namespace Shift.Domain
             String NameOfJoined = "";
             String ForeignKey = "";
             String ForeignTableName = "";
-            //Dictionary<string, string> Joining = new Dictionary<string, string>();
             List<Tuple<String, String, String>> Joining = new List<Tuple<string, string, string>>();
 
             foreach (var prop in props)
@@ -89,11 +88,6 @@ namespace Shift.Domain
             {
                 conn.Open();
 
-
-                //sql =$"SELECT * FROM {db.TableName}";
-
-
-
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     if (param != null)
@@ -135,6 +129,11 @@ namespace Shift.Domain
                     }
                 }
             }
+        }
+
+        public void Save(DatabaseTable<T> db, Dictionary<string, object> param = null)
+        {
+            throw new NotImplementedException();
         }
     }
 }

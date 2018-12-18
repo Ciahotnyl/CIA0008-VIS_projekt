@@ -15,13 +15,6 @@ namespace Shift.Domain
             DatabaseTable<Employees> employee = new DatabaseTable<Employees>();
             
             employee.Fill(param);
-            /*
-            using (SqlConnection conn = new SqlConnection(Database.ConnectionString))
-            {
-                conn.Open();
-                
-            }
-            */
             return employee;
         }
     }

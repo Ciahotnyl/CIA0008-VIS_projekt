@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shift.Data
+namespace Vis_project_library
 {
-    class Shifts
+    public class Class1
     {
     }
 }

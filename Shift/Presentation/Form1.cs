@@ -1,5 +1,6 @@
 ﻿using Shift.Data;
 using Shift.Domain;
+using Shift.Presentation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace Shift
 {
     public partial class Form1 : Form
     {
+        string login = "";
+        bool isAdmin = false;
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +31,7 @@ namespace Shift
         {
             if(employeeGrid.DataSource == null)
             {
-                DatabaseTable<Employees> empl = EmployeeData.getEmployees();
+                DatabaseTable<Employees> empl = EmployeeData.getEmployees(null);
                 employeeGrid.DataSource = empl;
                 //employeeNavigator.BindingSource = empl;
             }
@@ -38,6 +41,39 @@ namespace Shift
         {
             int i = 10;
 
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            while(login == "")
+            {
+                Login lf = new Login();
+                switch(lf.ShowDialog())
+                {
+                    case DialogResult.OK:
+                        if(lf.emp != null)
+                        {
+                            login = lf.emp.Employee_login;
+                            isAdmin = lf.emp.isAdmin;
+                        }
+                        break;
+                    case DialogResult.Cancel:
+                        Close();
+                        return;
+                }
+            }           
+            ShiftCombo.SelectedIndex = 0;
+        }
+
+        private void ShiftCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Dictionary<String, object> param = new Dictionary<string, object>();
+            if(ShiftCombo.SelectedItem != "All")
+            {
+                param.Add("Name_of_shift", ShiftCombo.SelectedItem);
+            }
+            DatabaseTable<Employees> empl = EmployeeData.getEmployees(param);
+            employeeGrid.DataSource = empl;
         }
     }
 }

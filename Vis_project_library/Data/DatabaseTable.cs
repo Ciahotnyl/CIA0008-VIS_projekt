@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Vis_project_library.Domain;
 
 namespace Shift.Data
 {
@@ -29,14 +30,6 @@ namespace Shift.Data
         }
 
 
-        public IDataProvider<T>DataProvider
-        {
-            get
-            {
-                return new SqlDataProvider<T>();
-            }
-        }
-
 
         public T AddRecord()
         {
@@ -45,22 +38,12 @@ namespace Shift.Data
             Changed?.Invoke(this, new EventArgs());
             return record;
         }
-        public void Save()
-        {
-            foreach (var rec in this)
-            {
-                switch (rec.CURRENT_STATE)
-                {
-                    case Record.state.UNCHANGED:
-                        break;
-                }
-            }
-        }
                                                 // SELECT * FROM Employees WHERE name = @jmeno
                                                 // param = new dictionery<string,object>{{"jmeno", "Lukas"}}
         public void Fill(Dictionary<String,Object> param = null)
         {
-            DataProvider.Fill(this, param);
+            IDataProvider<T> dataProvider = DataProviderFactory.GetDefaultDataProvider<T>();
+            dataProvider.Fill(this, param);
             var JsP = new JsonDataProvider<T>();
             JsP.Export(this);
             /*

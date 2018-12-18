@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,12 +12,17 @@ namespace Vis_project_web
 {
     public partial class Default : System.Web.UI.Page
     {
-        DatabaseTable<Employees> empl = EmployeeData.getEmployees(null);
+        //Dictionary<String, object> param = new Dictionary<string, object>();
+
+        //DatabaseTable<Employees> empl = EmployeeData.getEmployees(null);
         protected void Page_Load(object sender, EventArgs e)
-        {
-            
-           GridView1.DataSource = empl;
-          GridView1.DataBind();
+        {          
+            Dictionary<String, object> param = new Dictionary<string, object>();
+            param.Add("Employees.ID_shift", null);
+            DatabaseTable<Employees> empl = EmployeeData.getEmployees(param);
+            //Response.Redirect("~/");
+            GridView1.DataSource = empl;
+            GridView1.DataBind();
         }
         protected override void Render(HtmlTextWriter writer)
         {

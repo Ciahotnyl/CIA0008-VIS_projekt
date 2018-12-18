@@ -16,6 +16,7 @@
             <asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>
         </div>
         <asp:Button ID="Button1" runat="server" Text="Save" OnClick="Button1_Click" />
+        <asp:HiddenField ID="HiddenField1" runat="server" />
     </form>
 </body>
 </html>

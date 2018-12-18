@@ -57,6 +57,7 @@
     <Compile Include="Data\TeamShift.cs" />
     <Compile Include="Data\Workplaces.cs" />
     <Compile Include="Domain\Database.cs" />
+    <Compile Include="Domain\DataProviderFactory.cs" />
     <Compile Include="Domain\EmployeeData.cs" />
     <Compile Include="Domain\IDataProvider.cs" />
     <Compile Include="Domain\JsonDataProvider.cs" />

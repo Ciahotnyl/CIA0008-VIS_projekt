@@ -79,9 +79,17 @@ namespace Shift.Domain
                 columns += " WHERE ";
                 foreach (var p in param)
                 {
-                    columns += p.Key + "= @" + p.Key.Split(".".ToCharArray()).Last() + ", ";
+                    if(p.Value == null)
+                    {
+                        columns +=  p.Key + " is null ";
+                    }
+                    else
+                    {
+                        columns +=  p.Key + " = @" + p.Key.Split(".".ToCharArray()).Last();
+                    }
+                    //columns += FirstTable+"." + p.Key + " = @" + p.Key.Split(".".ToCharArray()).Last() + ", ";
                 }
-                columns = columns.Substring(0, columns.Length - 2);
+                //columns = columns.Substring(0, columns.Length - 2);
             }
             sql = columns;
             using ( SqlConnection conn = new SqlConnection(ConnectionString))
@@ -94,7 +102,10 @@ namespace Shift.Domain
                     {
                         foreach (var par in param)
                         {
-                            cmd.Parameters.AddWithValue(par.Key.Split(".".ToCharArray()).Last(), par.Value);
+                            if(par.Value != null)
+                            {
+                                cmd.Parameters.AddWithValue(par.Key.Split(".".ToCharArray()).Last(), par.Value);
+                            }
                         }
                     }
                     using (SqlDataReader sr = cmd.ExecuteReader())
@@ -112,15 +123,11 @@ namespace Shift.Domain
                         while (sr.Read())
                         {
                             T record = (T)Activator.CreateInstance(typeof(T), new object[] { db });
-                            //record.RecordChanged += Record_RecordChanged;
                             for (int i = 0; i < sr.FieldCount; i++)
                             {
                                 object val = sr[i];
                                 PropertyInfo prop = record.GetType().GetProperty(db.Fields[i]);
-                                //if(val != DBNull.Value)
-                                //{
-                                    prop.SetValue(record, (val==DBNull.Value?null:val), null);
-                                //}
+                                prop.SetValue(record, (val==DBNull.Value?null:val), null);
                         
 
                             }
@@ -131,9 +138,39 @@ namespace Shift.Domain
             }
         }
 
-        public void Save(DatabaseTable<T> db, Dictionary<string, object> param = null)
+        public void Save(Dictionary<string, object> param = null)
         {
-            throw new NotImplementedException();
+            string sql;
+            string FirstTable = typeof(T).Name;
+            string key = ("ID_" + FirstTable.Substring(0, FirstTable.Length - 1)).ToLower();
+            var props = typeof(T).GetProperties();
+            string column = "UPDATE " + FirstTable + " SET ";
+            foreach (var p in param)
+            {
+
+                if (p.Key.ToLower() != key)
+                {
+                    column += p.Key + " = @" + p.Key + ", ";
+                }
+
+            }
+            column = column.Substring(0, column.Length - 2);
+            column += " WHERE " + key + " = @" + key;
+            sql = column;
+            int ret = 0;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand command = new SqlCommand(sql, conn);
+                foreach (var p in param) 
+                {
+                    command.Parameters.AddWithValue(p.Key, p.Value);
+                }
+
+                ret = command.ExecuteNonQuery();
+            }
         }
     }
 }

@@ -61,7 +61,7 @@ namespace Shift.Domain
             */
         }
 
-        public void Save(DatabaseTable<T> db, Dictionary<string, object> param = null)
+        public void Save(Dictionary<string, object> param = null)
         {
             throw new NotImplementedException();
         }

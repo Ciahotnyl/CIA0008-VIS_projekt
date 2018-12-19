@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
@@ -40,6 +41,7 @@ namespace Shift.Domain
                     }
                     records.Add(record);
                 }
+                
                 JavaScriptSerializer jss = new JavaScriptSerializer();
                 string temp = jss.Serialize(table);
                 sw.Write(temp);
@@ -55,13 +57,9 @@ namespace Shift.Domain
 
         public void Fill(DatabaseTable<T> db, Dictionary<string, object> param = null)
         {
-            /*
-            JavaScriptSerializer jss_load = new JavaScriptSerializer();
-            
-            var test = jss_load.DeserializeObject(temp2);
-            */
 
-            /*
+
+            db.Clear();
             DatabaseTable<Shifts> shift = new DatabaseTable<Shifts>();
             string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string dir = Path.Combine(path, "ShiftData");
@@ -69,9 +67,35 @@ namespace Shift.Domain
             using (StreamReader r = new StreamReader(fileName))
             {
                 string json = r.ReadToEnd();
-                List<Shifts> items = JsonConvert.DeserializeObject<List<Shifts>>(json);
+                JavaScriptSerializer jss = new JavaScriptSerializer();
+
                 
-            }*/
+                
+                Dictionary<string, Object> table = jss.Deserialize<Dictionary<string, Object>>(json);
+                string tableName = table["TableName"] as string;
+                ArrayList records = table["Records"] as ArrayList;
+                List<string> flds = null;
+                foreach (Dictionary<string, object> rec in records)
+                {
+                    T record = (T)Activator.CreateInstance(typeof(T), new object[] { db });
+                    if(flds == null)
+                    {
+                        flds = record.DataFields;
+                    }
+                    
+                    for (int i = 0; i < flds.Count; i++)
+                    {
+                        object val = rec[flds[i]];
+                        PropertyInfo prop = record.GetType().GetProperty(db.Fields[i]);
+                        prop.SetValue(record, (val), null);
+
+
+                    }
+                    
+                    db.Add(record);
+                }
+                
+            }
         }
 
         public void Save(Dictionary<string, object> param = null)

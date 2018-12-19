@@ -49,6 +49,7 @@
     <Compile Include="Data\DatabaseTable.cs" />
     <Compile Include="Data\EmployeePosition.cs" />
     <Compile Include="Data\Employees.cs" />
+    <Compile Include="Data\EmployeeTeam.cs" />
     <Compile Include="Data\ITable.cs" />
     <Compile Include="Data\Positions.cs" />
     <Compile Include="Data\Reasons.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Domain\Database.cs" />
     <Compile Include="Domain\DataProviderFactory.cs" />
     <Compile Include="Domain\EmployeeData.cs" />
+    <Compile Include="Domain\EmployeeTeamData.cs" />
     <Compile Include="Domain\IDataProvider.cs" />
     <Compile Include="Domain\JsonDataProvider.cs" />
     <Compile Include="Domain\ShiftData.cs" />

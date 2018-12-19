@@ -44,9 +44,7 @@ namespace Shift.Data
         {
             IDataProvider<T> dataProvider = DataProviderFactory.GetDefaultDataProvider<T>();
             dataProvider.Fill(this, param);
-            var JsP = new JsonDataProvider<T>();
-            JsP.Export(this);
-            JsP.Fill(this);
+            
             /*
            string sql;
            if (command == null)

@@ -14,14 +14,8 @@ namespace Shift.Data
     {
         ITable Table;
         public event EventHandler RecordChanged;
-        public enum state
-        {
-            UNCHANGED, 
-            MODIFIED,
-            DELETED,
-            INSERTED
-        }
-        public state CURRENT_STATE = state.UNCHANGED;
+       
+       
         public Record(ITable table)
         {
             Table = table;
@@ -40,10 +34,26 @@ namespace Shift.Data
             set
             {
                 //TODO
-                CURRENT_STATE = state.MODIFIED;
-                RecordChanged?.Invoke(this, new EventArgs());
+                       RecordChanged?.Invoke(this, new EventArgs());
             }
 
+        }
+
+        public List<string> DataFields
+        {
+            get
+            {
+                var props = GetType().GetProperties();
+                var dbs = props.Where((p)=> {
+                     return p.GetCustomAttributes(typeof(ShiftDbData), false).Length > 0;
+                });
+                List<string> ret = new List<string>();
+                foreach(var p in dbs)
+                {
+                    ret.Add(p.Name);
+                }
+                return ret;
+            }
         }
 
         public override string ToString()

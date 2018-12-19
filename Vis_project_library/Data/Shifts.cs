@@ -8,6 +8,8 @@ namespace Shift.Data
 {
     public class Shifts : Record
     {
+        
+
         public Shifts(ITable table) : base(table)
         {
 

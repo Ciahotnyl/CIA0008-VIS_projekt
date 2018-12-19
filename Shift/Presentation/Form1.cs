@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vis_project_library;
 using Vis_project_library.Domain;
 
 namespace Shift
@@ -91,9 +92,29 @@ namespace Shift
 
                 CreateTeam formTeam = new CreateTeam(ID_employee, ID_position);
                 Form1 f = new Form1();
-                formTeam.Show();
+                formTeam.ShowDialog(this);
                 f.Close();
             }
+        }
+
+        private void tabPage2_Enter(object sender, EventArgs e)
+        {
+           // if (dataGridView1.DataSource == null)
+            //{
+                DatabaseTable<EmployeeTeam> empl = EmployeeTeamData.getEmployeeTeam(null);
+                dataGridView1.DataSource = empl;
+                //employeeNavigator.BindingSource = empl;
+           // }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DatabaseTable<Shifts> s = new DatabaseTable<Shifts>();
+            s.Fill();
+            
+            var JsP = new JsonDataProvider<Shifts>();
+            JsP.Export(s);
+            JsP.Fill(s);
         }
     }
 }

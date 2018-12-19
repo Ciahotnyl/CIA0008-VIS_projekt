@@ -23,7 +23,7 @@ namespace Shift.Domain
         public void Fill(DatabaseTable<T> db, Dictionary<string, object> param = null)
         {
             string sql;
-
+            db.Clear();
             var props = typeof(T).GetProperties();
 
             string columns = "SELECT ";
@@ -144,20 +144,41 @@ namespace Shift.Domain
             string FirstTable = typeof(T).Name;
             string key = ("ID_" + FirstTable.Substring(0, FirstTable.Length - 1)).ToLower();
             var props = typeof(T).GetProperties();
-            string column = "UPDATE " + FirstTable + " SET ";
-            foreach (var p in param)
-            {
 
-                if (p.Key.ToLower() != key)
+            string column = "";
+            var t = param.FirstOrDefault((e) =>
+            {
+                return e.Key.ToLower() == key;
+            });
+            if (t.Key == null)
+            {
+                column += "INSERT INTO " + FirstTable + " (";
+                List<String> pole = new List<string>();
+                foreach(var p in param)
                 {
-                    column += p.Key + " = @" + p.Key + ", ";
+                    pole.Add(p.Key);
                 }
+                column += String.Join(",",pole.ToArray())+ ") VALUES (@"+String.Join(",@",pole.ToArray()) + ")";
 
             }
-            column = column.Substring(0, column.Length - 2);
-            column += " WHERE " + key + " = @" + key;
+            else
+            {
+                column = "UPDATE " + FirstTable + " SET ";
+                foreach (var p in param)
+                {
+
+                    if (p.Key.ToLower() != key)
+                    {
+                        column += p.Key + " = @" + p.Key + ", ";
+                    }
+
+                }
+                column = column.Substring(0, column.Length - 2);
+                column += " WHERE " + key + " = @" + key;
+
+            }
             sql = column;
-            int ret = 0;
+
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
@@ -169,7 +190,7 @@ namespace Shift.Domain
                     command.Parameters.AddWithValue(p.Key, p.Value);
                 }
 
-                ret = command.ExecuteNonQuery();
+                command.ExecuteNonQuery();
             }
         }
     }

@@ -37,6 +37,7 @@
             // 
             // Update_team_btn
             // 
+            this.Update_team_btn.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Update_team_btn.Location = new System.Drawing.Point(494, 272);
             this.Update_team_btn.Name = "Update_team_btn";
             this.Update_team_btn.Size = new System.Drawing.Size(106, 23);

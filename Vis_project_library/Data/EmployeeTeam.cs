@@ -13,7 +13,13 @@ namespace Vis_project_library
         {
 
         }
-        public int ID_position { get; set; }
+
+        [ShiftDbData]
+        public int ID_employee_team { get; set; }
+        [ShiftDbData]
         public int ID_employee { get; set; }
+        [ShiftDbData]
+        public int ID_team { get; set; }
+
     }
 }

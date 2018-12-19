@@ -96,7 +96,7 @@ namespace Shift.Domain
             {
                 conn.Open();
 
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlCommand cmd = new SqlCommand(sql, conn)) 
                 {
                     if (param != null)
                     {

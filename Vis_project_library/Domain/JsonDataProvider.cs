@@ -1,4 +1,5 @@
-﻿using Shift.Data;
+﻿using Newtonsoft.Json;
+using Shift.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -59,6 +60,18 @@ namespace Shift.Domain
             
             var test = jss_load.DeserializeObject(temp2);
             */
+
+            /*
+            DatabaseTable<Shifts> shift = new DatabaseTable<Shifts>();
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string dir = Path.Combine(path, "ShiftData");
+            string fileName = Path.Combine(dir, db.TableName + ".json");
+            using (StreamReader r = new StreamReader(fileName))
+            {
+                string json = r.ReadToEnd();
+                List<Shifts> items = JsonConvert.DeserializeObject<List<Shifts>>(json);
+                
+            }*/
         }
 
         public void Save(Dictionary<string, object> param = null)

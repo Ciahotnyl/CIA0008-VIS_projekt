@@ -28,8 +28,7 @@ namespace Vis_project_web
 
             if (!empl.Any())
             {
-                //MessageBox.Show("Login or password is empty");
-                return;
+                MsgBox("Add your login and password, please", this.Page, this);
             }
             else
             {
@@ -38,14 +37,30 @@ namespace Vis_project_web
                 var isAdmin = empl[0].isAdmin;
                 if (name == login && password == pass)
                 {
-                    Session["employee"] = empl[0];
-                    Response.Redirect("/AddToShift.aspx");
+                    if (isAdmin)
+                    {
+                        Session["employee"] = empl[0];
+                        Response.Redirect("/AddToShift.aspx");
+                    }
+                    else
+                    {
+                        MsgBox("Your are not Mistr!", this.Page, this);
+                    }
+
                 }
                 else
                 {
-                    return;
+
+                    MsgBox("Incorrect loing or password", this.Page, this);
                 }
             }
+        }
+        public void MsgBox(String ex, Page pg, Object obj)
+        {
+            string s = "<SCRIPT language='javascript'>alert('" + ex.Replace("\r\n", "\\n").Replace("'", "") + "'); </SCRIPT>";
+            Type cstype = obj.GetType();
+            ClientScriptManager cs = pg.ClientScript;
+            cs.RegisterClientScriptBlock(cstype, s, s.ToString());
         }
     }
 }

@@ -60,8 +60,12 @@ namespace Shift.Data
         public string Name_of_position { get; set; }
 
         [ShiftDbData]
-        [ReferenceData("Teams", "ID_position", "Positions")]
+        [ReferenceData("EmployeeTeam", "ID_employee")]
         public int ID_team { get; set; }
+
+        [ShiftDbData]
+        [ReferenceData("Teams", "ID_team", "EmployeeTeam")]
+        public string Name_of_team { get; set; }
 
         [ShiftDbData]
         [ReferenceData("Workplaces", "ID_workplace", "Teams")]

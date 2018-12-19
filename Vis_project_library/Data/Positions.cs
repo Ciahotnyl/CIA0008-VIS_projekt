@@ -14,6 +14,5 @@ namespace Shift.Data
         }
         public int ID_position { get; set; }
         public String Name_of_position { get; set; }
-        public int Class { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 /*
 namespace Shift.Domain
 {
-    //builder - getTable, fasada, proxy
+    //builder - getTable, facada, proxy
     class Database
     {
         protected Database()

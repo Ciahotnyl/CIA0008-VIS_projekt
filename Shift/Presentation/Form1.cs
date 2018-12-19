@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vis_project_library.Domain;
 
 namespace Shift
 {
@@ -74,6 +75,25 @@ namespace Shift
             }
             DatabaseTable<Employees> empl = EmployeeData.getEmployees(param);
             employeeGrid.DataSource = empl;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //var row = employeeGrid.SelectedRows.ToString();
+            if (employeeGrid.SelectedRows.Count == 1)
+            {
+                int selectedrowindex = employeeGrid.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = employeeGrid.Rows[selectedrowindex];
+
+                string ID_employee = Convert.ToString(selectedRow.Cells["ID_employee"].Value);
+                string ID_position = Convert.ToString(selectedRow.Cells["ID_position"].Value);
+
+                CreateTeam formTeam = new CreateTeam(ID_employee, ID_position);
+                Form1 f = new Form1();
+                formTeam.Show();
+                f.Close();
+            }
         }
     }
 }

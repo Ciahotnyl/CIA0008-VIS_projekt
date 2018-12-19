@@ -15,14 +15,12 @@ namespace Vis_project_web
         public DatabaseTable<Employees> empl;
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
-
                 Dictionary<string, object> param = new Dictionary<string, object>();
                 if (Request.Params["id"] == null)
                 {
-                    Response.Redirect("/");
+                    Response.Redirect("~/");
                 }
                 int id = Int32.Parse(Request.Params["id"]);
                 param.Add("Employees.ID_employee", id);

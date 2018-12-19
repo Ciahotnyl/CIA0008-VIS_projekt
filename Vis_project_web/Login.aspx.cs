@@ -29,6 +29,7 @@ namespace Vis_project_web
             if (!empl.Any())
             {
                 //MessageBox.Show("Login or password is empty");
+                return;
             }
             else
             {
@@ -42,7 +43,7 @@ namespace Vis_project_web
                 }
                 else
                 {
-                    
+                    return;
                 }
             }
         }

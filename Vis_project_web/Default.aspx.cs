@@ -12,15 +12,12 @@ namespace Vis_project_web
 {
     public partial class Default : System.Web.UI.Page
     {
-        //Dictionary<String, object> param = new Dictionary<string, object>();
-
-        //DatabaseTable<Employees> empl = EmployeeData.getEmployees(null);
         protected void Page_Load(object sender, EventArgs e)
         {          
             Dictionary<String, object> param = new Dictionary<string, object>();
             param.Add("Employees.ID_shift", null);
             DatabaseTable<Employees> empl = EmployeeData.getEmployees(param);
-            //Response.Redirect("~/");
+            //Response.Redirect("/Login.aspx");
             GridView1.DataSource = empl;
             GridView1.DataBind();
         }

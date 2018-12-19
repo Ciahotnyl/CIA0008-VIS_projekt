@@ -63,6 +63,8 @@
     <Compile Include="Domain\JsonDataProvider.cs" />
     <Compile Include="Domain\ShiftData.cs" />
     <Compile Include="Domain\SqlDataProvider.cs" />
+    <Compile Include="Domain\TeamData.cs" />
+    <Compile Include="Domain\WorkplaceData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

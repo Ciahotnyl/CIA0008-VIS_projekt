@@ -30,9 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.employeeGrid = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.ShiftCombo = new System.Windows.Forms.ToolStripComboBox();
-            this.employeeGrid = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,8 +41,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeGrid)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +59,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.employeeGrid);
             this.tabPage1.Controls.Add(this.toolStrip1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -68,6 +70,28 @@
             this.tabPage1.Text = "employees";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(150, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "AddToTeam";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // employeeGrid
+            // 
+            this.employeeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.employeeGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.employeeGrid.Location = new System.Drawing.Point(3, 28);
+            this.employeeGrid.Name = "employeeGrid";
+            this.employeeGrid.ReadOnly = true;
+            this.employeeGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.employeeGrid.Size = new System.Drawing.Size(664, 254);
+            this.employeeGrid.TabIndex = 0;
+            this.employeeGrid.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeGrid_CellValidated);
             // 
             // toolStrip1
             // 
@@ -91,18 +115,6 @@
             this.ShiftCombo.Name = "ShiftCombo";
             this.ShiftCombo.Size = new System.Drawing.Size(121, 25);
             this.ShiftCombo.SelectedIndexChanged += new System.EventHandler(this.ShiftCombo_SelectedIndexChanged);
-            // 
-            // employeeGrid
-            // 
-            this.employeeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeeGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.employeeGrid.Location = new System.Drawing.Point(3, 28);
-            this.employeeGrid.Name = "employeeGrid";
-            this.employeeGrid.ReadOnly = true;
-            this.employeeGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.employeeGrid.Size = new System.Drawing.Size(664, 254);
-            this.employeeGrid.TabIndex = 0;
-            this.employeeGrid.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeGrid_CellValidated);
             // 
             // tabPage2
             // 
@@ -162,9 +174,9 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeGrid)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeGrid)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -184,6 +196,7 @@
         private System.Windows.Forms.DataGridView employeeGrid;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripComboBox ShiftCombo;
+        private System.Windows.Forms.Button button1;
     }
 }
 

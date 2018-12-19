@@ -12,7 +12,7 @@ namespace Shift.Domain
         //public abstract List<string> Fields { get; }
         void Fill(DatabaseTable<T> db, Dictionary<String, object> param = null);
         void Export(DatabaseTable<T> db);
-        void Save(DatabaseTable<T> db, Dictionary<String, object> param = null);
+        void Save(Dictionary<String, object> param = null);
     }
 
 }

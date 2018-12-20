@@ -6,12 +6,12 @@
 
 
 # Desktop App
-## Folder ProjectVIS
+## Folder Shift / Vis_project_Desktop
 ### 2 UC implemented
 ### ```vytvoření týmu```
 ### ```výpis zaměstnanců podle směny```
 # Web Forms
-## Folder ProjectVIS
+## Folder Vis_project_web
 ### 1 UC implemented
 ### ```přidání nového zaměstnance na směnu```
 #Logins

@@ -115,7 +115,6 @@ namespace Shift
             var JsP = new JsonDataProvider<Shifts>();
             JsP.Export(s);
             JsP.Fill(s);
-            JSON_grid.DataSource = JsP;
         }
     }
 }

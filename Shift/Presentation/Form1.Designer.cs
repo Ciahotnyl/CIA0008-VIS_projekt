@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.employeeGrid = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -40,7 +41,6 @@
             this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeGrid)).BeginInit();
@@ -58,7 +58,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(769, 375);
+            this.tabControl1.Size = new System.Drawing.Size(911, 468);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -70,11 +70,21 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(761, 349);
+            this.tabPage1.Size = new System.Drawing.Size(903, 442);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "employees";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(247, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(142, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "TestJSON_provider";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -88,13 +98,14 @@
             // 
             // employeeGrid
             // 
+            this.employeeGrid.AllowDrop = true;
             this.employeeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.employeeGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.employeeGrid.Location = new System.Drawing.Point(3, 28);
             this.employeeGrid.Name = "employeeGrid";
             this.employeeGrid.ReadOnly = true;
             this.employeeGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.employeeGrid.Size = new System.Drawing.Size(755, 318);
+            this.employeeGrid.Size = new System.Drawing.Size(897, 411);
             this.employeeGrid.TabIndex = 0;
             this.employeeGrid.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeGrid_CellValidated);
             // 
@@ -104,7 +115,7 @@
             this.ShiftCombo});
             this.toolStrip1.Location = new System.Drawing.Point(3, 3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(755, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(897, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -148,7 +159,7 @@
             this.employeesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(769, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(911, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -169,27 +180,17 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 399);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 492);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(769, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(911, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(247, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "TestJSON_provider";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(769, 421);
+            this.ClientSize = new System.Drawing.Size(911, 514);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);

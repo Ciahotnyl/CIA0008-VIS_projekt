@@ -7,13 +7,14 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Vis_project_library.Data;
 
 namespace Shift.Domain
 {
     public class SqlDataProvider<T> : IDataProvider<T> where T : Record
     {
 
-        public static string ConnectionString = @"server=dbsys.cs.vsb.cz\STUDENT;database=cia0008;user=cia0008;password=qkFGDEHrFz;";
+        public static string ConnectionString = DBConnector.GetBuilder().ConnectionString;
 
         public void Export(DatabaseTable<T> db)
         {
@@ -87,9 +88,7 @@ namespace Shift.Domain
                     {
                         columns +=  p.Key + " = @" + p.Key.Split(".".ToCharArray()).Last();
                     }
-                    //columns += FirstTable+"." + p.Key + " = @" + p.Key.Split(".".ToCharArray()).Last() + ", ";
                 }
-                //columns = columns.Substring(0, columns.Length - 2);
             }
             sql = columns;
             using ( SqlConnection conn = new SqlConnection(ConnectionString))

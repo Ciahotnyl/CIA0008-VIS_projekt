@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Shift.Domain
 {
-    public interface IDataProvider<T> /*: List<T>, ITable */where T : Record
+    public interface IDataProvider<T> where T : Record
     {
-        //public abstract List<string> Fields { get; }
         void Fill(DatabaseTable<T> db, Dictionary<String, object> param = null);
         void Export(DatabaseTable<T> db);
         void Save(Dictionary<String, object> param = null);

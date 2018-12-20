@@ -33,7 +33,6 @@ namespace Shift.Data
             }
             set
             {
-                //TODO
                        RecordChanged?.Invoke(this, new EventArgs());
             }
 

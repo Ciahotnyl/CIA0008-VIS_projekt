@@ -47,6 +47,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Data\Absences.cs" />
     <Compile Include="Data\DatabaseTable.cs" />
+    <Compile Include="Data\DBConnector.cs" />
     <Compile Include="Data\EmployeePosition.cs" />
     <Compile Include="Data\Employees.cs" />
     <Compile Include="Data\EmployeeTeam.cs" />

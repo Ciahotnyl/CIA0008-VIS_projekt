@@ -59,7 +59,6 @@
     <Compile Include="Data\ShiftData.cs" />
     <Compile Include="Data\Shifts.cs" />
     <Compile Include="Data\Teams.cs" />
-    <Compile Include="Data\TeamShift.cs" />
     <Compile Include="Data\Workplaces.cs" />
     <Compile Include="Domain\Database.cs" />
     <Compile Include="Domain\DataProviderFactory.cs" />

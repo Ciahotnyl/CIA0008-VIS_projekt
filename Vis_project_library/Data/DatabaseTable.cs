@@ -10,8 +10,6 @@ using Vis_project_library.Domain;
 
 namespace Shift.Data
 {
-
-
     //proxy, fasada, observer, observable
     public class DatabaseTable<T> : List<T>, ITable where T : Record
     {

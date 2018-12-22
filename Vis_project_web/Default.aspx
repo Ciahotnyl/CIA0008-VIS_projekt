@@ -13,6 +13,7 @@
         <asp:GridView ID="GridView1" runat="server" OnRowDataBound="GridView1_RowDataBound">
         </asp:GridView>
         <br />
+        <asp:Button ID="Export_to_json" runat="server" OnClick="Export_to_json_Click" Text="Export to JSON" />
     </form>
 </body>
 </html>

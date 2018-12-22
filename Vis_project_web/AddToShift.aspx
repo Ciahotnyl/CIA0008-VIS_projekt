@@ -17,6 +17,10 @@
         </div>
         <asp:Button ID="Button1" runat="server" Text="Save" OnClick="Button1_Click" />
         <asp:HiddenField ID="HiddenField1" runat="server" />
+        <asp:RadioButtonList ID="RadioButtonList2" runat="server" AutoPostBack="True" OnSelectedIndexChanged="RadioButtonList2_SelectedIndexChanged">
+            <asp:ListItem Selected="True">SQL</asp:ListItem>
+            <asp:ListItem>JSON</asp:ListItem>
+        </asp:RadioButtonList>
     </form>
 </body>
 </html>

@@ -25,15 +25,43 @@ namespace Shift.Data
         {
             get
             {
-                if (!Table.Fields.Contains(field))
+                string hit = "";
+                string[] parts = field.Split(".".ToCharArray(), 2);
+                field = parts.Last();
+                field = field.ToLower();
+                foreach(string f in Table.Fields)
+                {
+                    if(f.ToLower() == field)
+                    {
+                        hit = f;
+                    }
+                }
+                
+                if (hit.Length == 0)
                 {
                     throw new Exception($"Record do not have field {field}");
                 }
-                return GetType().GetProperty(field).GetValue(this);
+                
+                return GetType().GetProperty(hit).GetValue(this);
             }
             set
             {
-                       RecordChanged?.Invoke(this, new EventArgs());
+                string hit = "";
+                field = field.ToLower();
+                foreach (string f in Table.Fields)
+                {
+                    if (f.ToLower() == field)
+                    {
+                        hit = f;
+                    }
+                }
+
+                if (hit.Length == 0)
+                {
+                    throw new Exception($"Record do not have field {field}");
+                }
+                GetType().GetProperty(hit).SetValue(this, value);
+                RecordChanged?.Invoke(this, new EventArgs());
             }
 
         }

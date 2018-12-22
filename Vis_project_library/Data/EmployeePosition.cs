@@ -12,7 +12,9 @@ namespace Shift.Data
         {
 
         }
+        [ShiftDbData]
         public int ID_position { get; set; }
+        [ShiftDbData]
         public int ID_employee { get; set; }
     }
 }

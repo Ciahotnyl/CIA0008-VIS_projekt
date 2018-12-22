@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Vis_project_library;
+using Vis_project_library.Domain;
 
 namespace Vis_project_web
 {
@@ -37,6 +39,44 @@ namespace Vis_project_web
                 //e.Row.DataItem,
                 e.Row.Cells[3].Controls.Add(hh);
             }
+        }
+
+        protected void Export_to_json_Click(object sender, EventArgs e)
+        {
+
+            //DatabaseTable<Employees> empl = EmployeeData.getEmployees(null);
+            //DatabaseTable<Workplaces> work = EmployeeData.getEmployees(null);
+
+           
+
+            
+
+            foreach (Type t in DataProviderFactory.tables)
+            {
+                Type dt = typeof(DatabaseTable<>).MakeGenericType(t);
+
+                Type jp = typeof(JsonDataProvider<>).MakeGenericType(t);
+                Type sp = typeof(SqlDataProvider<>).MakeGenericType(t);
+
+                object oo = Activator.CreateInstance(dt);
+
+                dynamic ins = oo;
+                //DatabaseTable<Record> ins = (dt)oo as DatabaseTable<Record>;                
+                dynamic jprov = Activator.CreateInstance(jp);
+                dynamic sprov = Activator.CreateInstance(sp);
+
+                sprov.Fill(ins);
+                DataProviderFactory.settings["path"] = this.MapPath("~/App_Data/JSON/");
+                jprov.Export(ins);
+                
+
+
+                //DatabaseTable <ins> a = new DatabaseTable<t>();
+            }
+            //DatabaseTable<Employees> employee = new DatabaseTable<Employees>();
+
+            //employee.Fill(param);
+
         }
     }
 }

@@ -13,7 +13,6 @@ namespace Shift.Domain
 {
     public class SqlDataProvider<T> : IDataProvider<T> where T : Record
     {
-
         public static string ConnectionString = DBConnector.GetBuilder().ConnectionString;
 
         public void Export(DatabaseTable<T> db)
@@ -137,7 +136,7 @@ namespace Shift.Domain
             }
         }
 
-        public void Save(Dictionary<string, object> param = null)
+        public void Save(Dictionary<string, object> param = null, DatabaseTable<T> db = null)
         {
             string sql;
             string FirstTable = typeof(T).Name;

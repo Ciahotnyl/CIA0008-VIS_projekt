@@ -1,4 +1,4 @@
-#School project for VIS
+# School project for VIS
 
 ## Author: Lukas Ciahotny
 

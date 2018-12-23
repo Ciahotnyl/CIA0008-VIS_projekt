@@ -14,6 +14,10 @@
         </asp:GridView>
         <br />
         <asp:Button ID="Export_to_json" runat="server" OnClick="Export_to_json_Click" Text="Export to JSON" />
+        <asp:RadioButtonList ID="RadioButtonList1" runat="server" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged" AutoPostBack="True">
+            <asp:ListItem Selected="True">SQL</asp:ListItem>
+            <asp:ListItem>JSON</asp:ListItem>
+        </asp:RadioButtonList>
     </form>
 </body>
 </html>

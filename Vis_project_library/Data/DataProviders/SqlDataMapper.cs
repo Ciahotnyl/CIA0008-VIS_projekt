@@ -11,7 +11,7 @@ using Vis_project_library.Data;
 
 namespace Shift.Domain
 {
-    public class SqlDataProvider<T> : IDataProvider<T> where T : Record
+    public class SqlDataMapper<T> : IDataProvider<T> where T : Record
     {
         public static string ConnectionString = DBConnector.GetBuilder().ConnectionString;
 

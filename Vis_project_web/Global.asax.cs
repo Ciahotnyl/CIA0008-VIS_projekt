@@ -15,16 +15,10 @@ namespace Vis_project_web
 
         internal protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            /*
-            if (Session["username"] == null)
-            {
-                Session["abc"] = "asdasd";
-            }
-            */
         }
+
         protected void Session_Start(Object sender, EventArgs e)
         {
-            //HttpContext.Current.Session["Abc"] = "123";
         }
 
         protected void Application_PreRequestHandlerExecute(object sender, EventArgs e)
@@ -37,7 +31,6 @@ namespace Vis_project_web
                         Response.Redirect("/Login.aspx");
                     }
                 }
-                //HttpContext.Current.Session["Abc"] = "123";
             }
         }
     }

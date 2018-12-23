@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace Shift.Data
 {
-    class EmployeePosition : Record
+    public class Positions : Record
     {
-        public EmployeePosition(ITable table) : base(table)
+        public Positions(ITable table) : base(table)
         {
 
         }
         [ShiftDbData]
         public int ID_position { get; set; }
+
         [ShiftDbData]
-        public int ID_employee { get; set; }
+        public String Name_of_position { get; set; }
     }
 }

@@ -45,29 +45,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Data\Absences.cs" />
+    <Compile Include="Domain\Database_table_classes\Absences.cs" />
     <Compile Include="Data\DatabaseTable.cs" />
     <Compile Include="Data\DBConnector.cs" />
-    <Compile Include="Data\EmployeePosition.cs" />
-    <Compile Include="Data\Employees.cs" />
-    <Compile Include="Data\EmployeeTeam.cs" />
+    <Compile Include="Domain\Database_table_classes\EmployeePosition.cs" />
+    <Compile Include="Domain\Database_table_classes\Employees.cs" />
+    <Compile Include="Domain\Database_table_classes\EmployeeTeam.cs" />
     <Compile Include="Data\ITable.cs" />
-    <Compile Include="Data\Positions.cs" />
-    <Compile Include="Data\Reasons.cs" />
+    <Compile Include="Domain\Database_table_classes\Positions.cs" />
+    <Compile Include="Domain\Database_table_classes\Reasons.cs" />
     <Compile Include="Data\Record.cs" />
-    <Compile Include="Data\ReferenceData.cs" />
-    <Compile Include="Data\ShiftData.cs" />
-    <Compile Include="Data\Shifts.cs" />
-    <Compile Include="Data\Teams.cs" />
-    <Compile Include="Data\Workplaces.cs" />
-    <Compile Include="Domain\Database.cs" />
-    <Compile Include="Domain\DataProviderFactory.cs" />
+    <Compile Include="Data\CustomAttributes\ReferenceData.cs" />
+    <Compile Include="Data\CustomAttributes\ShiftDbData.cs" />
+    <Compile Include="Domain\Database_table_classes\Shifts.cs" />
+    <Compile Include="Domain\Database_table_classes\Teams.cs" />
+    <Compile Include="Domain\Database_table_classes\Workplaces.cs" />
+    <Compile Include="Data\DataProviders\DataProviderFactory.cs" />
     <Compile Include="Domain\EmployeeData.cs" />
     <Compile Include="Domain\EmployeeTeamData.cs" />
-    <Compile Include="Domain\IDataProvider.cs" />
-    <Compile Include="Domain\JsonDataProvider.cs" />
+    <Compile Include="Data\DataProviders\IDataProvider.cs" />
+    <Compile Include="Data\DataProviders\JsonDataMapper.cs" />
     <Compile Include="Domain\ShiftData.cs" />
-    <Compile Include="Domain\SqlDataProvider.cs" />
+    <Compile Include="Data\DataProviders\SqlDataMapper.cs" />
     <Compile Include="Domain\TeamData.cs" />
     <Compile Include="Domain\WorkplaceData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,5 +74,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

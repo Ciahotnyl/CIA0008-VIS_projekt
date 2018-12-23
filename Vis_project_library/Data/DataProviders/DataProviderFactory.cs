@@ -17,11 +17,11 @@ namespace Vis_project_library.Domain
             switch (typeProvider)
             {
                 case "SQL":
-                    return new SqlDataProvider<T>();
+                    return new SqlDataMapper<T>();
                 case "JSON":
-                    return new JsonDataProvider<T>();
+                    return new JsonDataMapper<T>();
                 default:
-                    return new SqlDataProvider<T>();
+                    return new SqlDataMapper<T>();
             }
 
         }

@@ -46,11 +46,9 @@ namespace Vis_project_web
                     {
                         MsgBox("Your are not Mistr!", this.Page, this);
                     }
-
                 }
                 else
                 {
-
                     MsgBox("Incorrect loing or password", this.Page, this);
                 }
             }

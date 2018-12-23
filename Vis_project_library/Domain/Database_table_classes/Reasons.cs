@@ -14,6 +14,7 @@ namespace Shift.Data
         }
         [ShiftDbData]
         public int ID_reason { get; set; }
+
         [ShiftDbData]
         public string Name_of_reason { get; set; }
        

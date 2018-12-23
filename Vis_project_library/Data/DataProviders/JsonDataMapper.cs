@@ -13,7 +13,7 @@ using Vis_project_library.Domain;
 
 namespace Shift.Domain
 {
-    public class JsonDataProvider<T> : IDataProvider<T> where T : Record
+    public class JsonDataMapper<T> : IDataProvider<T> where T : Record
     {
 
         static Dictionary<String, object> tables = new Dictionary<string, object>();
@@ -75,20 +75,17 @@ namespace Shift.Domain
             {
                     Type dt = typeof(DatabaseTable<>).MakeGenericType(t);
 
-                    Type jp = typeof(JsonDataProvider<>).MakeGenericType(t);
-                    Type sp = typeof(SqlDataProvider<>).MakeGenericType(t);
+                    Type jp = typeof(JsonDataMapper<>).MakeGenericType(t);
+                    Type sp = typeof(SqlDataMapper<>).MakeGenericType(t);
 
                     object oo = Activator.CreateInstance(dt);
 
                     dynamic ins = oo;
-                    //DatabaseTable<Record> ins = (dt)oo as DatabaseTable<Record>;                
+            
                     dynamic jprov = Activator.CreateInstance(jp);
 
                    jprov.fillInner(ins);
                 tables.Add(t.Name, ins);
-
-
-                    //DatabaseTable <ins> a = new DatabaseTable<t>();
             }
         }
 
@@ -114,9 +111,6 @@ namespace Shift.Domain
             {
                 string json = r.ReadToEnd();
                 JavaScriptSerializer jss = new JavaScriptSerializer();
-
-
-
                 Dictionary<string, Object> table = jss.Deserialize<Dictionary<string, Object>>(json);
                 string tableName = table["TableName"] as string;
                 ArrayList records = table["Records"] as ArrayList;
@@ -132,12 +126,8 @@ namespace Shift.Domain
                     for (int i = 0; i < flds.Count; i++)
                     {
                         object val = rec[flds[i]];
-                        // PropertyInfo prop = record.GetType().GetProperty(db.Fields[i]);
                         PropertyInfo prop = record.GetType().GetProperty(flds[i]);
-
                         prop.SetValue(record, (val), null);
-
-
                     }
 
                     db.Add(record);
@@ -198,7 +188,6 @@ namespace Shift.Domain
                 }
             }
             Export(tab);
-            //this.Export(db);
         }
     }
 }

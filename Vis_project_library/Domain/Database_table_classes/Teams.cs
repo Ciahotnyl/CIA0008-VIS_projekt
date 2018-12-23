@@ -14,8 +14,10 @@ namespace Shift.Data
         }
         [ShiftDbData]
         public int ID_team { get; set; }
+
         [ShiftDbData]
         public int ID_workplace { get; set; }
+
         [ShiftDbData]
         public string Name_of_team { get; set; }
     }

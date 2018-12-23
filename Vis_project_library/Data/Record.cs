@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace Shift.Data
 {
-
-
-    //Observable
-    
+    //Observable    
     public class Record
     {
         ITable Table;
         public event EventHandler RecordChanged;
-       
-       
+             
         public Record(ITable table)
         {
             Table = table;
@@ -63,7 +59,6 @@ namespace Shift.Data
                 GetType().GetProperty(hit).SetValue(this, value);
                 RecordChanged?.Invoke(this, new EventArgs());
             }
-
         }
 
         public List<string> DataFields

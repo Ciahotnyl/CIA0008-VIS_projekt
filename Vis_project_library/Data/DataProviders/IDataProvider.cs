@@ -9,7 +9,6 @@ namespace Shift.Domain
 {
     public interface IDataProvider<T> where T : Record
     {
-       // Dictionary<string, object> settings { get; set; }
         void Fill(DatabaseTable<T> db, Dictionary<String, object> param = null);
         void Export(DatabaseTable<T> db);
         void Save(Dictionary<String, object> param = null, DatabaseTable<T> db = null);

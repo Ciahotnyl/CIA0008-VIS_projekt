@@ -35,7 +35,6 @@ namespace Shift
             {
                 DatabaseTable<Employees> empl = EmployeeData.getEmployees(null);
                 employeeGrid.DataSource = empl;
-                //employeeNavigator.BindingSource = empl;
             }
         }
 
@@ -80,7 +79,6 @@ namespace Shift
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //var row = employeeGrid.SelectedRows.ToString();
             if (employeeGrid.SelectedRows.Count == 1)
             {
                 int selectedrowindex = employeeGrid.SelectedCells[0].RowIndex;
@@ -99,22 +97,18 @@ namespace Shift
 
         private void tabPage2_Enter(object sender, EventArgs e)
         {
-           // if (dataGridView1.DataSource == null)
-            //{
                 DatabaseTable<EmployeeTeam> empl = EmployeeTeamData.getEmployeeTeam(null);
                 dataGridView1.DataSource = empl;
-                //employeeNavigator.BindingSource = empl;
-           // }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        /*private void button2_Click(object sender, EventArgs e)
         {
             DatabaseTable<Shifts> s = new DatabaseTable<Shifts>();
             s.Fill();
             
-            var JsP = new JsonDataProvider<Shifts>();
+            var JsP = new JsonDataMapper<Shifts>();
             JsP.Export(s);
             JsP.Fill(s);
-        }
+        }*/
     }
 }

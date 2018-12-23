@@ -14,12 +14,16 @@ namespace Shift.Data
         }
         [ShiftDbData]
         public int ID_absence { get; set; }
+
         [ShiftDbData]
         public int ID_reason { get; set; }
+
         [ShiftDbData]
         public int ID_employee { get; set; }
+
         [ShiftDbData]
         public DateTime From { get; set; }
+
         [ShiftDbData]
         public DateTime To { get; set; }
 

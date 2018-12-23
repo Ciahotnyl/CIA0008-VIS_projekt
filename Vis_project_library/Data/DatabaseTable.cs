@@ -26,8 +26,6 @@ namespace Shift.Data
         {
         }
 
-
-
         public T AddRecord()
         {
             T record = (T)Activator.CreateInstance(typeof(T), new object[] { this });
@@ -41,6 +39,7 @@ namespace Shift.Data
             IDataProvider<T> dataProvider = DataProviderFactory.GetDefaultDataProvider<T>();
             dataProvider.Fill(this, param);         
         }
+
         private void Record_RecordChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();

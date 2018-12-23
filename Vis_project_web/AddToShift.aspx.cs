@@ -25,7 +25,7 @@ namespace Vis_project_web
                 int id = Int32.Parse(Request.Params["id"]);
                 param.Add("Employees.ID_employee", id);
                 HiddenField1.Value = id.ToString();
-                /*DatabaseTable<Employees>*/ empl = EmployeeData.getEmployees(param);
+                empl = EmployeeData.getEmployees(param);
                 Label1.Text = empl[0].First_name + " " + empl[0].Last_name;
                 DatabaseTable<Shifts> shif = ShiftData.getShifts(null);
                 RadioButtonList1.DataValueField = "ID_shift";
@@ -52,43 +52,6 @@ namespace Vis_project_web
                 IDataProvider<Employees> provider = DataProviderFactory.GetDefaultDataProvider<Employees>();
                 provider.Save(param);
                 Response.Redirect("/");
-            }
-        }
-
-        protected void RadioButtonList2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedValue = RadioButtonList2.SelectedValue;
-            switch (selectedValue)
-            {
-                case "SQL":
-
-                    DataProviderFactory.SetDefaultDataProvider("SQL");
-                    DataProviderFactory.settings.Clear();
-                    Dictionary<string, object> param = new Dictionary<string, object>();
-                    int id = Int32.Parse(Request.Params["id"]);
-                    param.Add("Employees.ID_employee", id);
-                    HiddenField1.Value = id.ToString();
-                    /*DatabaseTable<Employees>*/
-                    empl = EmployeeData.getEmployees(param);
-                    Label1.Text = empl[0].First_name + " " + empl[0].Last_name;
-                    DatabaseTable<Shifts> shif = ShiftData.getShifts(null);
-                    RadioButtonList1.DataValueField = "ID_shift";
-                    RadioButtonList1.DataTextField = "Name_of_shift";
-                    RadioButtonList1.DataSource = shif;
-                    RadioButtonList1.DataBind();
-
-                    break;
-                case "JSON":
-                    //DataProviderFactory.GetDefaultDataProvider();
-                    DataProviderFactory.SetDefaultDataProvider("JSON");
-                    DataProviderFactory.settings["path"] = this.MapPath("~/App_Data/JSON/");
-
-                    DatabaseTable<Shifts> shif2 = ShiftData.getShifts(null);
-                    RadioButtonList1.DataValueField = "ID_shift";
-                    RadioButtonList1.DataTextField = "Name_of_shift";
-                    RadioButtonList1.DataSource = shif2;
-                    RadioButtonList1.DataBind();
-                    break;
             }
         }
     }

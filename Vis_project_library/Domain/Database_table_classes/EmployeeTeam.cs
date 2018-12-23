@@ -16,8 +16,10 @@ namespace Vis_project_library
 
         [ShiftDbData]
         public int ID_employee_team { get; set; }
+
         [ShiftDbData]
         public int ID_employee { get; set; }
+
         [ShiftDbData]
         public int ID_team { get; set; }
 

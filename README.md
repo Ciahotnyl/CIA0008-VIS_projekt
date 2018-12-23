@@ -17,6 +17,7 @@
 ### 1 UC implemented
 ### ```přidání nového zaměstnance na směnu(pro přidání stačí kliknout na hyperlink na zaměstnancově příjmení)```
 ### ```Možnost exportování SQL do JSON a po spuštění znova je možné pracovat v UC: přidání nového zaměstnance na směnu se dvěma datovými zdroji.```
+### ```JSON soubory jsou uloženy ve Vis_project_web/App_data/JSON/ ```
 # Authorization
 ## Mistr login: cia, password: abc
 ## Employee login: a, password: abc

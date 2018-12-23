@@ -17,6 +17,6 @@
 ### 1 UC implemented
 ### ```přidání nového zaměstnance na směnu(pro přidání stačí kliknout na hyperlink na zaměstnancově příjmení)```
 ### ```Možnost exportování SQL do JSON a po spuštění znova je možné pracovat v UC: přidání nového zaměstnance na směnu se dvěma datovými zdroji.```
-#Logins
-## Admin login: cia, password: abc
+# Authorization
+## Mistr login: cia, password: abc
 ## Employee login: a, password: abc
